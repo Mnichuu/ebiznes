@@ -7,7 +7,7 @@ SQLite w ramach projektu na Gradle (build.gradle)
 przez CMD oraz gradle
 + 5.0 dodać konfigurację docker-compose 
 - Link do dockerhuba: https://hub.docker.com/repository/docker/smnich/dockerjavaapp/general
-<br> <i>Po zajęciach 24.03 dopisuję, że moim zdaniem zadanie 1 zrobiłem na 5
+<br> *Po zajęciach 24.03 dopisuję, że moim zdaniem zadanie 1 zrobiłem na 5*
 > Zadanie 2:
 Należy stworzyć aplikację na frameworku Play w Scali 3. 
 + 3.0 Należy stworzyć kontroler do Produktów 
