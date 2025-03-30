@@ -11,11 +11,11 @@ przez CMD oraz gradle
 + Kod: folder 'Zadanie 1'
 > Zadanie 2:
 Należy stworzyć aplikację na frameworku Play w Scali 3. 
-+ ✅ 3.0 Należy stworzyć kontroler do Produktów 
++ ✅ 3.0 Należy stworzyć kontroler do Produktów [Commit](https://github.com/Mnichuu/ebiznes/commit/0d012d75a6609b4ba18f5cd115b98239b68c26fd)
 + ✅ 3.5 Do kontrolera należy stworzyć endpointy zgodnie z CRUD - dane
-pobierane z listy
+pobierane z listy [Commit](https://github.com/Mnichuu/ebiznes/commit/0d012d75a6609b4ba18f5cd115b98239b68c26fd)
 + ✅ 4.0 Należy stworzyć kontrolery do Kategorii oraz Koszyka + endpointy
-zgodnie z CRUD
+zgodnie z CRUD [Commit](https://github.com/Mnichuu/ebiznes/commit/27c4e01a58c5ab70186ed463e319f3a4aa35f018)
 + ❌ 4.5 Należy aplikację uruchomić na dockerze (stworzyć obraz) oraz dodać
 skrypt uruchamiający aplikację via ngrok
 + ❌ 5.0 Należy dodać konfigurację CORS dla dwóch hostów dla metod CRUD
