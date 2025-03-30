@@ -8,6 +8,7 @@ przez CMD oraz gradle
 + ✅ 5.0 dodać konfigurację docker-compose 
 - Link do dockerhuba: https://hub.docker.com/repository/docker/smnich/dockerjavaapp/general
 <br> *Po zajęciach 24.03 dopisuję, że moim zdaniem zadanie 1 zrobiłem na 5*
++ Kod: folder 'Zadanie 1'
 > Zadanie 2:
 Należy stworzyć aplikację na frameworku Play w Scali 3. 
 + ✅ 3.0 Należy stworzyć kontroler do Produktów 
@@ -20,3 +21,4 @@ skrypt uruchamiający aplikację via ngrok
 + ❌ 5.0 Należy dodać konfigurację CORS dla dwóch hostów dla metod CRUD
 Kontrolery mogą bazować na listach zamiast baz danych. CRUD: show all,
 show by id (get), update (put), delete (delete), add (post).
++ Kod: folder 'Zadanie 2'
