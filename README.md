@@ -22,3 +22,10 @@ skrypt uruchamiający aplikację via ngrok
 Kontrolery mogą bazować na listach zamiast baz danych. CRUD: show all,
 show by id (get), update (put), delete (delete), add (post).
 + Kod: folder 'Zadanie 2'
+> Zadanie 3: Kotlin
++ ❌ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord [Commit]()
++ ❌ 3.5 Aplikacja jest w stanie odbierać wiadomości użytkowników z platformy Discord skierowane do aplikacji (bota) [Commit]()
++ ❌ 4.0 Zwróci listę kategorii na określone żądanie użytkownika [Commit]()
++ ❌ 4.5 Zwróci listę produktów wg żądanej kategorii [Commit]()
++ ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex [Commit]()
++ Kod: folder 'Zadanie 2'
