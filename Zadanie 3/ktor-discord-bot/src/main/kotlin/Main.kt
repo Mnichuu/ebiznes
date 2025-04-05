@@ -7,6 +7,7 @@ import java.util.Properties
 val properties = loadProperties()
 val botToken = properties.getProperty("BOT_TOKEN") ?: throw Exception("BOT_TOKEN not found in config.properties")
 val channelId = properties.getProperty("CHANNEL_ID") ?: throw Exception("CHANNEL_ID not found in config.properties")
+val botId = properties.getProperty("BOT_ID") ?: throw Exception("BOT_ID not found in config.properties")
 
 var lastMessageId: String? = null
 
@@ -43,12 +44,15 @@ suspend fun getMesseges() {
     while (true) {
         try {
             val messages = discordService.getMessages(lastMessageId)
+
             if (messages.isNotEmpty()) {
-                val message = messages.first()
-                println("Content: ${message.content}, Author: ${message.author.username}#${message.author.discriminator}, Message ID: ${message.messageId}")
-                lastMessageId = message.messageId
-            } else {
-                println("Brak nowych wiadomości.")
+                messages.forEach { message ->
+                    val fMessage = messages.first()
+                    if (fMessage.content?.contains(botId) == true) {
+                        println("Wiadomość do bota: Content: ${fMessage.content}, Author: ${fMessage.author.username}#${fMessage.author.discriminator}, Message ID: ${fMessage.messageId}")
+                    }
+                    lastMessageId = fMessage.messageId
+                }
             }
             delay(5000)
         } catch (e: Exception) {
