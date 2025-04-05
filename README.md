@@ -24,7 +24,7 @@ show by id (get), update (put), delete (delete), add (post).
 + Kod: folder 'Zadanie 2'
 > Zadanie 3: Kotlin
 + ✅ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord [Commit](https://github.com/Mnichuu/ebiznes/commit/6fda92238b86ab51f116653a4bc0b7fbb6d6eeb4)
-+ ✅ 3.5 Aplikacja jest w stanie odbierać wiadomości użytkowników z platformy Discord skierowane do aplikacji (bota) [Commit]()
++ ✅ 3.5 Aplikacja jest w stanie odbierać wiadomości użytkowników z platformy Discord skierowane do aplikacji (bota) [Commit](https://github.com/Mnichuu/ebiznes/commit/b94eac48f551b3c282fe8ea6e2e0b6808b871b70)
 + ❌ 4.0 Zwróci listę kategorii na określone żądanie użytkownika [Commit]()
 + ❌ 4.5 Zwróci listę produktów wg żądanej kategorii [Commit]()
 + ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex [Commit]()
