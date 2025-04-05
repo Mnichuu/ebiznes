@@ -1,12 +1,14 @@
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
 import kotlinx.coroutines.*
 import java.io.FileInputStream
 import java.util.Properties
 
+val properties = loadProperties()
+val botToken = properties.getProperty("BOT_TOKEN") ?: throw Exception("BOT_TOKEN not found in config.properties")
+val channelId = properties.getProperty("CHANNEL_ID") ?: throw Exception("CHANNEL_ID not found in config.properties")
+
+var lastMessageId: String? = null
 
 fun loadProperties(): Properties {
     val properties = Properties().apply {
@@ -15,21 +17,43 @@ fun loadProperties(): Properties {
     return properties
 }
 
-fun main() = runBlocking {
-    val properties = loadProperties()
-    val botToken = properties.getProperty("BOT_TOKEN") ?: throw Exception("BOT_TOKEN not found in config.properties")
-    val channelId = properties.getProperty("CHANNEL_ID") ?: throw Exception("CHANNEL_ID not found in config.properties")
+suspend fun main() {
+    System.setProperty("file.encoding", "UTF-8")
 
+    sendMesseges()
+    getMesseges()
+}
+
+suspend fun sendMesseges() {
     val client = HttpClient(CIO)
-
-    val response: HttpResponse = client.post("https://discord.com/api/v10/channels/$channelId/messages") {
-        headers {
-            append(HttpHeaders.Authorization, botToken)
-            append(HttpHeaders.ContentType, "application/json")
-        }
-        setBody("""{"content": "Cześć, jestem botem z Kotlina!"}""")
+    val discordService = DiscordService(client, botToken, channelId)
+    try {
+        discordService.sendMessage("Cześć, jestem botem z Kotlina!")
+        delay(5000)
+    } catch (e: Exception) {
+        println("Błąd podczas wysyłania wiadomości: ${e.message}")
+        delay(5000)
     }
+}
 
-    println("Response status: ${response.status}")
-    client.close()
+suspend fun getMesseges() {
+    val client = HttpClient(CIO)
+    val discordService = DiscordService(client, botToken, channelId)
+
+    while (true) {
+        try {
+            val messages = discordService.getMessages(lastMessageId)
+            if (messages.isNotEmpty()) {
+                val message = messages.first()
+                println("Content: ${message.content}, Author: ${message.author.username}#${message.author.discriminator}, Message ID: ${message.messageId}")
+                lastMessageId = message.messageId
+            } else {
+                println("Brak nowych wiadomości.")
+            }
+            delay(5000)
+        } catch (e: Exception) {
+            println("Błąd podczas pobierania wiadomości: ${e.message}")
+            delay(5000)
+        }
+    }
 }
