@@ -28,4 +28,4 @@ show by id (get), update (put), delete (delete), add (post).
 + ❌ 4.0 Zwróci listę kategorii na określone żądanie użytkownika [Commit]()
 + ❌ 4.5 Zwróci listę produktów wg żądanej kategorii [Commit]()
 + ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex [Commit]()
-+ Kod: folder 'Zadanie 2'
++ Kod: folder 'Zadanie 3'
