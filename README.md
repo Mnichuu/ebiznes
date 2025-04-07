@@ -28,4 +28,11 @@ show by id (get), update (put), delete (delete), add (post).
 + ❌ 4.0 Zwróci listę kategorii na określone żądanie użytkownika [Commit]()
 + ❌ 4.5 Zwróci listę produktów wg żądanej kategorii [Commit]()
 + ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex [Commit]()
-+ Kod: folder 'Zadanie 2'
++ Kod: folder 'Zadanie 3'
++ > Zadanie 4: Go
++ ✅ 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Produktów zgodny z CRUD [Commit](https://github.com/Mnichuu/ebiznes/commit/e67bd3ce3165c31601e00e4b03c295fdafe7246b)
++ ✅ 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast listy) [Commit](https://github.com/Mnichuu/ebiznes/commit/e67bd3ce3165c31601e00e4b03c295fdafe7246b)
++ ✅ 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint [Commit](https://github.com/Mnichuu/ebiznes/commit/1906ad1af07f4134232f90c9665e0b95eeb253f3)
++ ✅ 4.5 Należy stworzyć model kategorii i dodać relację między kategorią, a produktem [Commit](https://github.com/Mnichuu/ebiznes/commit/98ddd46107b2fed4eb2345b7b9162be173f262b1)
++ ❌ 5.0 Należy pogrupować zapytania w gorm’owe scope'y [Commit]()
++ Kod: folder 'Zadanie 4'
