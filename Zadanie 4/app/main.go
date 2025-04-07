@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// Struktura produktu
+// Product struktura
 type Product struct {
 	ID    uint    `json:"id" gorm:"primaryKey"`
 	Name  string  `json:"name"`
