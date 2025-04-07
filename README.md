@@ -29,3 +29,10 @@ show by id (get), update (put), delete (delete), add (post).
 + ❌ 4.5 Zwróci listę produktów wg żądanej kategorii [Commit]()
 + ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex [Commit]()
 + Kod: folder 'Zadanie 3'
++ > Zadanie 4: Go
++ ❌ 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Produktów zgodny z CRUD [Commit]()
++ ❌ 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast listy) [Commit]()
++ ❌ 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint [Commit]()
++ ❌ 4.5 Należy stworzyć model kategorii i dodać relację między kategorią, a produktem [Commit]()
++ ❌ 5.0 Należy pogrupować zapytania w gorm’owe scope'y [Commit]()
++ Kod: folder 'Zadanie 4'
