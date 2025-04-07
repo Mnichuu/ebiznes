@@ -38,6 +38,12 @@ func main() {
 	e.PUT("/carts/:id", updateCart)
 	e.DELETE("/carts/:id", deleteCart)
 
+	e.POST("/categories", createCategory)
+	e.GET("/categories", getCategories)
+	e.GET("/categories/:id", getCategory)
+	e.PUT("/categories/:id", updateCategory)
+	e.DELETE("/categories/:id", deleteCategory)
+
 	// Start serwera
 	e.Logger.Fatal(e.Start(":8080"))
 }
