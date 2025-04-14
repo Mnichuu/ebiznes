@@ -36,3 +36,25 @@ show by id (get), update (put), delete (delete), add (post).
 + ✅ 4.5 Należy stworzyć model kategorii i dodać relację między kategorią, a produktem [Commit](https://github.com/Mnichuu/ebiznes/commit/98ddd46107b2fed4eb2345b7b9162be173f262b1)
 + ❌ 5.0 Należy pogrupować zapytania w gorm’owe scope'y [Commit]()
 + Kod: folder 'Zadanie 4'
+> Zadanie 5: Frontend. Należy stworzyć aplikację kliencką wykorzystując bibliotekę React.js.
+W ramach projektu należy stworzyć trzy komponenty: 
+> + Produkty - powinien pobierać dane o produktach z aplikacji serwerowej.
+> + Koszyk - powinien wysyłać do aplikacji serwerowej dane
+> + Płatności - powinien wysyłać do aplikacji serwerowej dane
+> + Aplikacja serwera w jednym z trzech języków: 
+>   + Kotlin
+>   + Scala
+>   + Go 
+> + Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks.
+
+
++ ❌ 3.0 W ramach projektu należy stworzyć dwa komponenty:  [Commit]()
+  + Produkty oraz Płatności; 
+  + Płatności powinny wysyłać do aplikacji serwerowej dane
+  + W Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej;
++ ❌ 3.5 Należy dodać Koszyk wraz z widokiem: [Commit]()
+  + należy wykorzystać routing 
++ ❌ 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks [Commit]()
++ ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose [Commit]()
++ ❌ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS [Commit]()
++ Kod: folder 'Zadanie 5'
