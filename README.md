@@ -58,3 +58,22 @@ W ramach projektu należy stworzyć trzy komponenty:
 + ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose [Commit]()
 + ❌ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS [Commit]()
 + Kod: folder 'Zadanie 5'
+
+> Zadanie 6: Testy
+
++ ❌ 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium (Kotlin, Python, Java, JS, Go, Scala) [Commit]()
++ ❌ 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji [Commit]()
++ ❌ 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami [Commit]()
++ ❌ 4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint [Commit]()
++ ❌ 5.0 Należy uruchomić testy funkcjonalne na Browserstacku [Commit]()
+
+**Wymagania:**
+- Testy funkcjonalne muszą być napisane w CypressJS lub Selenium w jednym z języków: Kotlin, Python, Java, JS, Go, Scala.
+- Testy muszą zawierać minimum 50 asercji.
+- Testy jednostkowe muszą być dodane do jednego z wcześniejszych projektów.
+- Testy API muszą pokrywać wszystkie endpointy, w tym minimum jeden scenariusz negatywny na każdy endpoint.
+- Testy funkcjonalne muszą być uruchamiane na platformie Browserstack.
+
+**Dodatkowe informacje:**
+- Należy stworzyć darmowe konto na Browserstack za pomocą [GitHub Student Pack](https://education.github.com/pack).
+- Kod: folder 'Zadanie 6'
