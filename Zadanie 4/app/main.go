@@ -21,7 +21,7 @@ func main() {
 	}
 
 	// Migracja schema
-	err := db.AutoMigrate(&Product{})
+	err := db.AutoMigrate(&Product{}, &Category{}, &Cart{})
 	if err != nil {
 		return
 	}
