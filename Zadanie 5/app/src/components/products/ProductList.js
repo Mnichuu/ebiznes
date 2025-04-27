@@ -9,7 +9,7 @@ function ProductList() {
         const cartData = {
             products: [{ id: product.id }],
         };
-        const cartID = 4;
+        const cartID = 5;
 
         axios.put(`http://localhost:8080/carts/${cartID}`, cartData, {
             headers: {
@@ -31,13 +31,18 @@ function ProductList() {
     }, []);
 
     return (
-        <div>
-            <h1>Products</h1>
-            <ul>
+        <div className="product-container">
+            <h1 className="product-title">Produkty</h1>
+            <ul className="product-list">
                 {products.map((product) => (
-                    <li key={product.id}>
-                        {product.name} - ${product.price} - {product.category_id}
-                        <button onClick={() => handleAddToCart(product)}>Dodaj do Koszyka</button>
+                    <li key={product.id} className="product-item">
+                        <span>{product.name} - ${product.price}</span>
+                        <button
+                            className="add-to-cart-button"
+                            onClick={() => handleAddToCart(product)}
+                        >
+                            Dodaj do Koszyka
+                        </button>
                     </li>
                 ))}
             </ul>

@@ -34,10 +34,10 @@ function PaymentList() {
     };
 
     return (
-        <div>
-            <h1>Dodaj Produkt</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
+        <div className="payment-container">
+            <h1 className="payment-title">Dodaj Produkt</h1>
+            <form onSubmit={handleSubmit} className="payment-form">
+                <div className="form-group">
                     <label>Nazwa:</label>
                     <input
                         type="text"
@@ -47,7 +47,7 @@ function PaymentList() {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Cena:</label>
                     <input
                         type="number"
@@ -57,17 +57,7 @@ function PaymentList() {
                         required
                     />
                 </div>
-                <div>
-                    <label>ID Kategorii:</label>
-                    <input
-                        type="number"
-                        name="category_id"
-                        value={productData.category_id}
-                        onChange={handleInputChange}
-                        required
-                    />
-                </div>
-                <button type="submit">Dodaj Produkt</button>
+                <button type="submit" className="payment-button">Dodaj Produkt</button>
             </form>
         </div>
     );

@@ -3,29 +3,32 @@ import axios from "axios";
 
 function CartList() {
     const [cartItems, setCartItems] = useState([]);
-    const cartID = 4; // Replace with the actual cart ID
+    const cartID = 5;
 
     useEffect(() => {
         // Fetch cart items from the backend
         axios.get(`http://localhost:8080/carts/${cartID}`)
             .then((response) => {
-                setCartItems(response.data.products); // Assuming the response contains a `products` array
+                setCartItems(response.data.products);
             })
             .catch((error) => {
                 console.error("Error fetching cart items:", error.response?.data || error.message);
             });
     }, []);
 
+
     return (
-        <div>
-            <h1>Koszyk</h1>
+        <div className="cart-container">
+            <h1 className="cart-title">Twój Koszyk</h1>
             {cartItems.length === 0 ? (
-                <p>Twój koszyk jest pusty.</p>
+                <p className="empty-cart">Twój koszyk jest pusty.</p>
             ) : (
-                <ul>
+                <ul className="cart-list">
                     {cartItems.map((item, index) => (
-                        <li key={index}>
-                            Produkt ID: {item.id}
+                        <li key={index} className="cart-item">
+                            <span>ID: {item.id}</span>
+                            <span>Produkt: {item.name}</span>
+                            <span>Cena: ${item.price}</span>
                         </li>
                     ))}
                 </ul>

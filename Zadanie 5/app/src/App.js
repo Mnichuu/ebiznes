@@ -3,22 +3,32 @@ import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import ProductList from "./components/products/ProductList";
 import PaymentList from "./components/payments/PaymentList";
 import CartList from "./components/cart/CartList";
+import "./assets/styles/App.css";
+import "./assets/styles/CartList.css";
+import "./assets/styles/ProductList.css";
+import "./assets/styles/PaymentList.css";
+
 
 function App() {
     return (
         <Router>
-            <nav>
-                <ul>
-                    <li><Link to="/">Produkty</Link></li>
-                    <li><Link to="/koszyk">Koszyk</Link></li>
-                    <li><Link to="/platnosci">Płatności</Link></li>
-                </ul>
-            </nav>
-            <Routes>
-                <Route path="/" element={<ProductList />} />
-                <Route path="/koszyk" element={<CartList />} />
-                <Route path="/platnosci" element={<PaymentList />} />
-            </Routes>
+            <div className="app">
+                <nav className="navbar">
+                    <h1 className="logo">MójSklep</h1>
+                    <ul className="nav-links">
+                        <li><Link to="/">Produkty</Link></li>
+                        <li><Link to="/koszyk">Koszyk</Link></li>
+                        <li><Link to="/platnosci">Płatności</Link></li>
+                    </ul>
+                </nav>
+                <main className="content">
+                    <Routes>
+                        <Route path="/" element={<ProductList />} />
+                        <Route path="/koszyk" element={<CartList />} />
+                        <Route path="/platnosci" element={<PaymentList />} />
+                    </Routes>
+                </main>
+            </div>
         </Router>
     );
 }
