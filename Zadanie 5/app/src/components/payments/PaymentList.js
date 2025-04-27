@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Produkty() {
+function PaymentList() {
     const [productData, setProductData] = useState({
         name: "",
         price: "",
@@ -73,4 +73,4 @@ function Produkty() {
     );
 }
 
-export default Produkty;
+export default PaymentList;
