@@ -48,11 +48,11 @@ W ramach projektu należy stworzyć trzy komponenty:
 > + Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks.
 
 
-+ ❌ 3.0 W ramach projektu należy stworzyć dwa komponenty:  [Commit]()
++ ✅  3.0 W ramach projektu należy stworzyć dwa komponenty:  [Commit](https://github.com/Mnichuu/ebiznes/commit/15e56d3e9b6715b6de76e040526f48d8e4a25c45)
   + Produkty oraz Płatności; 
   + Płatności powinny wysyłać do aplikacji serwerowej dane
   + W Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej;
-+ ❌ 3.5 Należy dodać Koszyk wraz z widokiem: [Commit]()
++ ✅  3.5 Należy dodać Koszyk wraz z widokiem: [Commit1](https://github.com/Mnichuu/ebiznes/commit/7169ec453f9a03a63bfc7a40b15668e6cadbffe0)[Commit2](https://github.com/Mnichuu/ebiznes/commit/a9076eae7abb6acf1adb610e9901ca584bb388b0)
   + należy wykorzystać routing 
 + ❌ 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks [Commit]()
 + ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose [Commit]()
@@ -77,3 +77,25 @@ W ramach projektu należy stworzyć trzy komponenty:
 **Dodatkowe informacje:**
 - Należy stworzyć darmowe konto na Browserstack za pomocą [GitHub Student Pack](https://education.github.com/pack).
 - Kod: folder 'Zadanie 6'
+
+> Zadanie 7: Sonar
+
++ ❌ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita [Commit]()
++ ❌ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
++ ❌ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
++ ❌ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
++ ❌ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej [Commit]()
+
+**Wymagania**
+- Należy dodać projekt aplikacji klienckiej oraz serwerowej (jeden branch, dwa repozytoria) do Sonara w wersji chmurowej (https://sonarcloud.io/). 
+- Należy poprawić aplikacje uzyskując 0 bugów, 
+  - 0 zapaszków, 
+  - 0 podatności,
+  - 0 błędów bezpieczeństwa. 
+- Dodatkowo należy dodać widżety sonarowe do README w repozytorium dane projektu z wynikami.
+
+**Dodatkowe informacje:**
+- https://golangci-lint.run/
+- https://github.com/pinterest/ktlint
+- https://scalameta.org/scalafmt/docs/installation.html
+- Kod: folder 'Zadanie 7'
