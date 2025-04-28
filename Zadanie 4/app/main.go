@@ -21,14 +21,14 @@ func main() {
 	}
 
 	// Migracja schema
-	err := db.AutoMigrate(&Product{}, &Category{}, &Cart{})
+	err := db.AutoMigrate(&Product{}, &Category{}, &Cart{}, &Payment{})
 	if err != nil {
 		return
 	}
 
 	// Middleware CORS
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://localhost:3000"}, // Dostosuj do swojej domeny frontendowej
+		AllowOrigins: []string{"http://localhost:3000"},
 		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
 	}))
 
@@ -43,6 +43,7 @@ func main() {
 	e.GET("/carts", getCarts)
 	e.GET("/carts/:id", getCart)
 	e.PUT("/carts/:id", updateCart)
+	e.PUT("/carts/:id/clear", clearCartProducts)
 	e.DELETE("/carts/:id", deleteCart)
 
 	e.POST("/categories", createCategory)
@@ -50,6 +51,12 @@ func main() {
 	e.GET("/categories/:id", getCategory)
 	e.PUT("/categories/:id", updateCategory)
 	e.DELETE("/categories/:id", deleteCategory)
+
+	e.POST("/payments", createPayment)
+	e.GET("/payments", getPayments)
+	e.GET("/payments/:id", getPayment)
+	e.PUT("/payments/:id", updatePayment)
+	e.DELETE("/payments/:id", deletePayment)
 
 	// Start serwera
 	e.Logger.Fatal(e.Start(":8080"))

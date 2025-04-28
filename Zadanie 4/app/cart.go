@@ -49,6 +49,21 @@ func updateCart(c echo.Context) error {
 	return c.JSON(http.StatusOK, cart)
 }
 
+func clearCartProducts(c echo.Context) error {
+	id := c.Param("id")
+	var cart Cart
+
+	if result := db.First(&cart, id); result.Error != nil {
+		return c.JSON(http.StatusNotFound, result.Error)
+	}
+
+	if err := db.Model(&cart).Association("Products").Clear(); err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to clear products"})
+	}
+
+	return c.JSON(http.StatusOK, cart)
+}
+
 func deleteCart(c echo.Context) error {
 	id := c.Param("id")
 	var cart Cart
