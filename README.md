@@ -52,7 +52,7 @@ W ramach projektu należy stworzyć trzy komponenty:
   + Produkty oraz Płatności; 
   + Płatności powinny wysyłać do aplikacji serwerowej dane
   + W Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej;
-+ ✅  3.5 Należy dodać Koszyk wraz z widokiem: [Commit1](https://github.com/Mnichuu/ebiznes/commit/7169ec453f9a03a63bfc7a40b15668e6cadbffe0)[Commit2](https://github.com/Mnichuu/ebiznes/commit/a9076eae7abb6acf1adb610e9901ca584bb388b0)
++ ✅  3.5 Należy dodać Koszyk wraz z widokiem: [Commit1](https://github.com/Mnichuu/ebiznes/commit/7169ec453f9a03a63bfc7a40b15668e6cadbffe0)[Commit2](https://github.com/Mnichuu/ebiznes/commit/a9076eae7abb6acf1adb610e9901ca584bb388b0)[Commit-z-poprawionymi-płatnościami](https://github.com/Mnichuu/ebiznes/commit/5fd30a439d608ca0f72df3bcc394fd72f2b3d15d)
   + należy wykorzystać routing 
 + ❌ 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks [Commit]()
 + ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose [Commit]()
