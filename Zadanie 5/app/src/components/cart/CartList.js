@@ -3,10 +3,9 @@ import axios from "axios";
 
 function CartList() {
     const [cartItems, setCartItems] = useState([]);
-    const cartID = 5;
+    const cartID = 2;
 
     useEffect(() => {
-        // Fetch cart items from the backend
         axios.get(`http://localhost:8080/carts/${cartID}`)
             .then((response) => {
                 setCartItems(response.data.products);

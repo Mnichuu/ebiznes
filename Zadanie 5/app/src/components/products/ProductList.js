@@ -9,7 +9,7 @@ function ProductList() {
         const cartData = {
             products: [{ id: product.id }],
         };
-        const cartID = 5;
+        const cartID = 2;
 
         axios.put(`http://localhost:8080/carts/${cartID}`, cartData, {
             headers: {
