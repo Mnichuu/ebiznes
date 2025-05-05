@@ -61,9 +61,9 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 > Zadanie 6: Testy
 
-+ ❌ 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium (Kotlin, Python, Java, JS, Go, Scala) [Commit]()
-+ ❌ 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji [Commit]()
-+ ❌ 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami [Commit]()
++ ✅ 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium (Kotlin, Python, Java, JS, Go, Scala) [Commit](https://github.com/Mnichuu/ebiznes/commit/195b34164d49e2d1d519599ebec20468325c2eab)
++ ✅ 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji [Commit](https://github.com/Mnichuu/ebiznes/commit/2ea6883d34a410e0b462fdddfb988e1c72e30636)
++ ✅ 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami [Commit](https://github.com/Mnichuu/ebiznes/commit/2ea6883d34a410e0b462fdddfb988e1c72e30636)
 + ❌ 4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint [Commit]()
 + ❌ 5.0 Należy uruchomić testy funkcjonalne na Browserstacku [Commit]()
 
