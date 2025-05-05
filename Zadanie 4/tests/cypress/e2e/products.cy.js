@@ -1,12 +1,15 @@
 describe('Go Backend API Tests', () => {
     const baseUrl = 'http://localhost:8080';
 
-    // Test cases for /products
     describe('Products API', () => {
         it('should fetch all products', () => {
             cy.request(`${baseUrl}/products`).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body).to.be.an('array');
+                expect(response.body.length).to.be.gte(0);
+                if (response.body.length > 0) {
+                    expect(response.body[0]).to.have.all.keys('category', 'category_id', 'id', 'name', 'price');
+                }
             });
         });
 
@@ -14,6 +17,8 @@ describe('Go Backend API Tests', () => {
             cy.request(`${baseUrl}/products/1`).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body).to.have.property('id', 1);
+                expect(response.body).to.have.property('name');
+                expect(response.body).to.have.property('price');
             });
         });
 
@@ -24,6 +29,7 @@ describe('Go Backend API Tests', () => {
             }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('name', 'Test Product');
+                expect(response.body).to.have.property('price', 100);
             });
         });
 
@@ -34,6 +40,7 @@ describe('Go Backend API Tests', () => {
             }).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body).to.have.property('name', 'Updated Product');
+                expect(response.body).to.have.property('price', 150);
             });
         });
 
@@ -44,7 +51,6 @@ describe('Go Backend API Tests', () => {
         });
     });
 
-    // Test cases for /carts
     describe('Carts API', () => {
         it('should fetch all carts', () => {
             cy.request(`${baseUrl}/carts`).then((response) => {
@@ -57,6 +63,8 @@ describe('Go Backend API Tests', () => {
             cy.request(`${baseUrl}/carts/3`).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body).to.have.property('id', 3);
+                expect(response.body).to.have.property('products');
+                expect(response.body.products).to.be.an('array');
             });
         });
 
@@ -66,6 +74,7 @@ describe('Go Backend API Tests', () => {
             }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('products');
+                expect(response.body.products[0]).to.have.property('id', 1);
             });
         });
 
@@ -85,7 +94,6 @@ describe('Go Backend API Tests', () => {
         });
     });
 
-    // Test cases for /categories
     describe('Categories API', () => {
         it('should create a new category', () => {
             cy.request('POST', `${baseUrl}/categories`, {
@@ -93,6 +101,7 @@ describe('Go Backend API Tests', () => {
             }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('name', 'Test Category');
+                expect(response.body).to.have.property('id');
             });
         });
 
@@ -142,7 +151,6 @@ describe('Go Backend API Tests', () => {
         });
     });
 
-    // Test cases for /payments
     describe('Payments API', () => {
         it('should create a new payment', () => {
             cy.request('POST', `${baseUrl}/payments`, {
@@ -150,6 +158,7 @@ describe('Go Backend API Tests', () => {
             }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('products');
+                expect(response.body.products[0]).to.have.property('id', 1);
             });
         });
 
@@ -168,6 +177,7 @@ describe('Go Backend API Tests', () => {
                 cy.request(`${baseUrl}/payments/${id}`).then((getResponse) => {
                     expect(getResponse.status).to.eq(200);
                     expect(getResponse.body).to.have.property('id', id);
+                    expect(getResponse.body.products).to.be.an('array');
                 });
             });
         });
@@ -198,11 +208,10 @@ describe('Go Backend API Tests', () => {
         });
     });
 
-    // Negative test cases
     describe('Negative Tests', () => {
         it('should return 404 for a non-existent product', () => {
             cy.request({
-                url: `${baseUrl}/products/999`,
+                url: `${baseUrl}/products/9999`,
                 failOnStatusCode: false,
             }).then((response) => {
                 expect(response.status).to.eq(404);
@@ -211,10 +220,10 @@ describe('Go Backend API Tests', () => {
 
         it('should return 404 for a non-existent cart', () => {
             cy.request({
-                url: `${baseUrl}/carts/999`,
+                url: `${baseUrl}/carts/9999`,
                 failOnStatusCode: false,
             }).then((response) => {
-                expect(response.body).to.be.empty;
+                expect(response.status).to.eq(404);
             });
         });
 
