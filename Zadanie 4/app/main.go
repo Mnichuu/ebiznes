@@ -10,7 +10,6 @@ import (
 var db *gorm.DB
 var err error
 
-//jakaś zmiana
 func main() {
 	// Inicjalizacja Echo
 	e := echo.New()
@@ -33,31 +32,35 @@ func main() {
 		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
 	}))
 
+	const productsId = "/products/:id"
+	const cartsId = "/carts/:id"
+	const categoriesId = "/categories/:id"
+	const paymentsId = "/payments/:id"
 	// Endpoints
 	e.POST("/products", createProduct)
 	e.GET("/products", getProducts)
-	e.GET("/products/:id", getProduct)
-	e.PUT("/products/:id", updateProduct)
-	e.DELETE("/products/:id", deleteProduct)
+	e.GET(productsId, getProduct)
+	e.PUT(productsId, updateProduct)
+	e.DELETE(productsId, deleteProduct)
 
 	e.POST("/carts", createCart)
 	e.GET("/carts", getCarts)
-	e.GET("/carts/:id", getCart)
-	e.PUT("/carts/:id", updateCart)
+	e.GET(cartsId, getCart)
+	e.PUT(cartsId, updateCart)
 	e.PUT("/carts/:id/clear", clearCartProducts)
-	e.DELETE("/carts/:id", deleteCart)
+	e.DELETE(cartsId, deleteCart)
 
 	e.POST("/categories", createCategory)
 	e.GET("/categories", getCategories)
-	e.GET("/categories/:id", getCategory)
-	e.PUT("/categories/:id", updateCategory)
-	e.DELETE("/categories/:id", deleteCategory)
+	e.GET(categoriesId, getCategory)
+	e.PUT(categoriesId, updateCategory)
+	e.DELETE(categoriesId, deleteCategory)
 
 	e.POST("/payments", createPayment)
 	e.GET("/payments", getPayments)
-	e.GET("/payments/:id", getPayment)
-	e.PUT("/payments/:id", updatePayment)
-	e.DELETE("/payments/:id", deletePayment)
+	e.GET(paymentsId, getPayment)
+	e.PUT(paymentsId, updatePayment)
+	e.DELETE(categoriesId, deletePayment)
 
 	// Start serwera
 	e.Logger.Fatal(e.Start(":8080"))
