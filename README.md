@@ -116,5 +116,3 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 **Prawidłowa komunikacja:**
 `React -> Serwer -> Dostawca -> Serwer (via return URI) -> React`
-
-+ Kod: folder 'Zadanie 8'
