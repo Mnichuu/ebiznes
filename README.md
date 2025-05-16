@@ -98,4 +98,23 @@ W ramach projektu należy stworzyć trzy komponenty:
 - https://golangci-lint.run/
 - https://github.com/pinterest/ktlint
 - https://scalameta.org/scalafmt/docs/installation.html
-- Kod: folder 'Zadanie 7'
+
+> Zadanie 8: OAuth2
+
++ ❌ 3.0 Logowanie przez aplikację serwerową (bez OAuth2) [Commit](https://github.com/Mnichuu/ebiznes/commit/placeholder_commit_3.0)
++ ❌ 3.5 Rejestracja przez aplikację serwerową (bez OAuth2) [Commit](https://github.com/Mnichuu/ebiznes/commit/placeholder_commit_3.5)
++ ❌ 4.0 Logowanie via Google OAuth2 [Commit]()
++ ❌ 4.5 Logowanie via Facebook lub Github OAuth2 [Commit]()
++ ❌ 5.0 Zapisywanie danych logowania OAuth2 po stronie serwera [Commit]()
+
+**Wymagania:**
+- Należy skonfigurować klienta OAuth2.
+- Dane o użytkowniku wraz z tokenem powinny być przechowywane po stronie bazy serwera.
+- Nowy token (inny niż ten od dostawcy) powinien zostać wysłany do klienta (React).
+- Można zastosować mechanizm sesji lub inny dowolny.
+- Zabronione jest tworzenie klientów bezpośrednio po stronie React'a, wyłączając z komunikacji aplikację serwerową (np. wykorzystując auth0).
+
+**Prawidłowa komunikacja:**
+`React -> Serwer -> Dostawca -> Serwer (via return URI) -> React`
+
++ Kod: folder 'Zadanie 8'
