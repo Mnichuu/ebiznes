@@ -1,51 +1,72 @@
+// Helper functions
+function validateResponseArray(response) {
+    expect(response.status).to.eq(200);
+    expect(response.body).to.be.an('array');
+}
+
+function validateProductKeys(product) {
+    expect(product).to.have.all.keys('category', 'category_id', 'id', 'name', 'price');
+}
+
+function validateProductById(response, id) {
+    expect(response.status).to.eq(200);
+    expect(response.body).to.have.property('id', id);
+    expect(response.body).to.have.property('name');
+    expect(response.body).to.have.property('price');
+}
+
+function createProduct(baseUrl, product) {
+    return cy.request('POST', `${baseUrl}/products`, product);
+}
+
+function updateProduct(baseUrl, id, updatedProduct) {
+    return cy.request('PUT', `${baseUrl}/products/${id}`, updatedProduct);
+}
+
+function deleteProduct(baseUrl, id) {
+    return cy.request('DELETE', `${baseUrl}/products/${id}`);
+}
+
+// Refactored tests
 describe('Go Backend API Tests', () => {
     const baseUrl = 'http://localhost:8080';
 
     describe('Products API', () => {
         it('should fetch all products', () => {
             cy.request(`${baseUrl}/products`).then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body).to.be.an('array');
-                expect(response.body.length).to.be.gte(0);
+                validateResponseArray(response);
                 if (response.body.length > 0) {
-                    expect(response.body[0]).to.have.all.keys('category', 'category_id', 'id', 'name', 'price');
+                    validateProductKeys(response.body[0]);
                 }
             });
         });
 
         it('should fetch a product by ID', () => {
             cy.request(`${baseUrl}/products/1`).then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body).to.have.property('id', 1);
-                expect(response.body).to.have.property('name');
-                expect(response.body).to.have.property('price');
+                validateProductById(response, 1);
             });
         });
 
         it('should create a new product', () => {
-            cy.request('POST', `${baseUrl}/products`, {
-                name: 'Test Product',
-                price: 100,
-            }).then((response) => {
+            const product = { name: 'Test Product', price: 100 };
+            createProduct(baseUrl, product).then((response) => {
                 expect(response.status).to.eq(201);
-                expect(response.body).to.have.property('name', 'Test Product');
-                expect(response.body).to.have.property('price', 100);
+                expect(response.body).to.have.property('name', product.name);
+                expect(response.body).to.have.property('price', product.price);
             });
         });
 
         it('should update a product', () => {
-            cy.request('PUT', `${baseUrl}/products/1`, {
-                name: 'Updated Product',
-                price: 150,
-            }).then((response) => {
+            const updatedProduct = { name: 'Updated Product', price: 150 };
+            updateProduct(baseUrl, 1, updatedProduct).then((response) => {
                 expect(response.status).to.eq(200);
-                expect(response.body).to.have.property('name', 'Updated Product');
-                expect(response.body).to.have.property('price', 150);
+                expect(response.body).to.have.property('name', updatedProduct.name);
+                expect(response.body).to.have.property('price', updatedProduct.price);
             });
         });
 
         it('should delete a product', () => {
-            cy.request('DELETE', `${baseUrl}/products/1`).then((response) => {
+            deleteProduct(baseUrl, 1).then((response) => {
                 expect(response.status).to.eq(204);
             });
         });
@@ -53,10 +74,7 @@ describe('Go Backend API Tests', () => {
 
     describe('Carts API', () => {
         it('should fetch all carts', () => {
-            cy.request(`${baseUrl}/carts`).then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body).to.be.an('array');
-            });
+            cy.request(`${baseUrl}/carts`).then(validateResponseArray);
         });
 
         it('should fetch a cart by ID', () => {
@@ -69,9 +87,7 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should create a new cart', () => {
-            cy.request('POST', `${baseUrl}/carts`, {
-                products: [{ id: 1 }],
-            }).then((response) => {
+            cy.request('POST', `${baseUrl}/carts`, { products: [{ id: 1 }] }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('products');
                 expect(response.body.products[0]).to.have.property('id', 1);
@@ -79,9 +95,7 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should update a cart', () => {
-            cy.request('PUT', `${baseUrl}/carts/2`, {
-                products: [{ id: 2 }],
-            }).then((response) => {
+            cy.request('PUT', `${baseUrl}/carts/2`, { products: [{ id: 2 }] }).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body.products[0]).to.have.property('id', 2);
             });
@@ -96,9 +110,7 @@ describe('Go Backend API Tests', () => {
 
     describe('Categories API', () => {
         it('should create a new category', () => {
-            cy.request('POST', `${baseUrl}/categories`, {
-                name: 'Test Category'
-            }).then((response) => {
+            cy.request('POST', `${baseUrl}/categories`, { name: 'Test Category' }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('name', 'Test Category');
                 expect(response.body).to.have.property('id');
@@ -106,16 +118,11 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should fetch all categories', () => {
-            cy.request(`${baseUrl}/categories`).then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body).to.be.an('array');
-            });
+            cy.request(`${baseUrl}/categories`).then(validateResponseArray);
         });
 
         it('should fetch a category by ID', () => {
-            cy.request('POST', `${baseUrl}/categories`, {
-                name: 'Fetchable Category'
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/categories`, { name: 'Fetchable Category' }).then((postResponse) => {
                 const id = postResponse.body.id;
                 cy.request(`${baseUrl}/categories/${id}`).then((getResponse) => {
                     expect(getResponse.status).to.eq(200);
@@ -126,13 +133,9 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should update a category', () => {
-            cy.request('POST', `${baseUrl}/categories`, {
-                name: 'Old Category Name'
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/categories`, { name: 'Old Category Name' }).then((postResponse) => {
                 const id = postResponse.body.id;
-                cy.request('PUT', `${baseUrl}/categories/${id}`, {
-                    name: 'Updated Category Name'
-                }).then((putResponse) => {
+                cy.request('PUT', `${baseUrl}/categories/${id}`, { name: 'Updated Category Name' }).then((putResponse) => {
                     expect(putResponse.status).to.eq(200);
                     expect(putResponse.body.name).to.eq('Updated Category Name');
                 });
@@ -140,9 +143,7 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should delete a category', () => {
-            cy.request('POST', `${baseUrl}/categories`, {
-                name: 'Category to Delete'
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/categories`, { name: 'Category to Delete' }).then((postResponse) => {
                 const id = postResponse.body.id;
                 cy.request('DELETE', `${baseUrl}/categories/${id}`).then((deleteResponse) => {
                     expect(deleteResponse.status).to.eq(204);
@@ -153,9 +154,7 @@ describe('Go Backend API Tests', () => {
 
     describe('Payments API', () => {
         it('should create a new payment', () => {
-            cy.request('POST', `${baseUrl}/payments`, {
-                products: [{ id: 1 }]
-            }).then((response) => {
+            cy.request('POST', `${baseUrl}/payments`, { products: [{ id: 1 }] }).then((response) => {
                 expect(response.status).to.eq(201);
                 expect(response.body).to.have.property('products');
                 expect(response.body.products[0]).to.have.property('id', 1);
@@ -163,16 +162,11 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should fetch all payments', () => {
-            cy.request(`${baseUrl}/payments`).then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body).to.be.an('array');
-            });
+            cy.request(`${baseUrl}/payments`).then(validateResponseArray);
         });
 
         it('should fetch a payment by ID', () => {
-            cy.request('POST', `${baseUrl}/payments`, {
-                products: [{ id: 1 }]
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/payments`, { products: [{ id: 1 }] }).then((postResponse) => {
                 const id = postResponse.body.id;
                 cy.request(`${baseUrl}/payments/${id}`).then((getResponse) => {
                     expect(getResponse.status).to.eq(200);
@@ -183,13 +177,9 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should update a payment', () => {
-            cy.request('POST', `${baseUrl}/payments`, {
-                products: [{ id: 1 }]
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/payments`, { products: [{ id: 1 }] }).then((postResponse) => {
                 const id = postResponse.body.id;
-                cy.request('PUT', `${baseUrl}/payments/${id}`, {
-                    products: [{ id: 2 }]
-                }).then((putResponse) => {
+                cy.request('PUT', `${baseUrl}/payments/${id}`, { products: [{ id: 2 }] }).then((putResponse) => {
                     expect(putResponse.status).to.eq(200);
                     expect(putResponse.body.products[0]).to.have.property('id', 2);
                 });
@@ -197,9 +187,7 @@ describe('Go Backend API Tests', () => {
         });
 
         it('should delete a payment', () => {
-            cy.request('POST', `${baseUrl}/payments`, {
-                products: [{ id: 1 }]
-            }).then((postResponse) => {
+            cy.request('POST', `${baseUrl}/payments`, { products: [{ id: 1 }] }).then((postResponse) => {
                 const id = postResponse.body.id;
                 cy.request('DELETE', `${baseUrl}/payments/${id}`).then((deleteResponse) => {
                     expect(deleteResponse.status).to.eq(204);
