@@ -5,39 +5,14 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"net/http"
 )
 
 var db *gorm.DB
 var err error
 
-type User struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
-
-func login(c echo.Context) error {
-	u := new(User)
-	if err := c.Bind(u); err != nil {
-		return err
-	}
-
-	if u.Email == "admin@admin.pl" || u.Password == "admin" {
-		return c.JSON(http.StatusOK, map[string]string{
-			"token": "example-jwt-token",
-		})
-	}
-
-	return c.JSON(http.StatusUnauthorized, map[string]string{
-		"message": "Invalid credentials",
-	})
-}
-
 func main() {
 	// Inicjalizacja Echo
 	e := echo.New()
-
-	e.POST("/login", login)
 
 	// Inicjalizacja gorm i SQLite
 	db, err = gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
@@ -46,7 +21,7 @@ func main() {
 	}
 
 	// Migracja schema
-	err := db.AutoMigrate(&Product{}, &Category{}, &Cart{}, &Payment{})
+	err := db.AutoMigrate(&Product{}, &Category{}, &Cart{}, &Payment{}, &User{})
 	if err != nil {
 		return
 	}
@@ -86,6 +61,9 @@ func main() {
 	e.GET(paymentsId, getPayment)
 	e.PUT(paymentsId, updatePayment)
 	e.DELETE(categoriesId, deletePayment)
+
+	e.POST("/register", register)
+	e.POST("/login", login)
 
 	// Start serwera
 	e.Logger.Fatal(e.Start(":8080"))
