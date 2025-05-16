@@ -80,7 +80,7 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 > Zadanie 7: Sonar
 
-+ ✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita [Commit]()
++ ✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita [Commit](https://github.com/Mnichuu/ebiznes/commit/86d9b223f629fdda9733d7b1148ecf90bf98fe35)
 + ✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=bugs)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
 + ✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
 + ✅ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
