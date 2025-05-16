@@ -80,11 +80,11 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 > Zadanie 7: Sonar
 
-+ ❌ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita [Commit]()
-+ ❌ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
-+ ❌ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
-+ ❌ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej) [Commit]()
-+ ❌ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej [Commit]()
++ ✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita [Commit]()
++ ✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=bugs)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
++ ✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
++ ✅ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes)
++ ✅ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes_1&metric=bugs)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes_1)[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=mnichuu_ebiznes_1&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=mnichuu_ebiznes_1)
 
 **Wymagania**
 - Należy dodać projekt aplikacji klienckiej oraz serwerowej (jeden branch, dwa repozytoria) do Sonara w wersji chmurowej (https://sonarcloud.io/). 
