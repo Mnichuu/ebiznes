@@ -23,8 +23,8 @@ function CartList() {
                 <p className="empty-cart">Twój koszyk jest pusty.</p>
             ) : (
                 <ul className="cart-list">
-                    {cartItems.map((item, index) => (
-                        <li key={index} className="cart-item">
+                    {cartItems.map((item) => (
+                        <li key={item.id} className="cart-item">
                             <span>ID: {item.id}</span>
                             <span>Produkt: {item.name}</span>
                             <span>Cena: ${item.price}</span>
