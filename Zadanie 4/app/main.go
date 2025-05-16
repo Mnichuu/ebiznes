@@ -10,6 +10,7 @@ import (
 var db *gorm.DB
 var err error
 
+//jakaś zmiana
 func main() {
 	// Inicjalizacja Echo
 	e := echo.New()
