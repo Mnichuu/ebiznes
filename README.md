@@ -102,7 +102,7 @@ W ramach projektu należy stworzyć trzy komponenty:
 > Zadanie 8: OAuth2
 
 + ✅ 3.0 Logowanie przez aplikację serwerową (bez OAuth2) [Commit](https://github.com/Mnichuu/ebiznes/commit/a38b5299516157aef87824d8a9da8ed5723de3ed)
-+ ❌ 3.5 Rejestracja przez aplikację serwerową (bez OAuth2) [Commit]()
++ ✅ 3.5 Rejestracja przez aplikację serwerową (bez OAuth2) [Commit](https://github.com/Mnichuu/ebiznes/commit/e4481f3e0f7448f08d36d2701c48b6071f73bed7)
 + ❌ 4.0 Logowanie via Google OAuth2 [Commit]()
 + ❌ 4.5 Logowanie via Facebook lub Github OAuth2 [Commit]()
 + ❌ 5.0 Zapisywanie danych logowania OAuth2 po stronie serwera [Commit]()
