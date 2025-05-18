@@ -16,13 +16,20 @@ func login(c echo.Context) error {
 		return err
 	}
 
-	if u.Email == "admin@admin.pl" && u.Password == "admin" {
-		return c.JSON(http.StatusOK, map[string]string{
-			"token": "example-jwt-token",
+	var dbUser User
+	if result := db.Where("email = ?", u.Email).First(&dbUser); result.Error != nil {
+		return c.JSON(http.StatusUnauthorized, map[string]string{
+			"message": "Invalid credentials",
 		})
 	}
 
-	return c.JSON(http.StatusUnauthorized, map[string]string{
-		"message": "Invalid credentials",
+	if u.Password != dbUser.Password {
+		return c.JSON(http.StatusUnauthorized, map[string]string{
+			"message": "Invalid credentials",
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]string{
+		"token": "example-jwt-token",
 	})
 }
