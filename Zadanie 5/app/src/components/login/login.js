@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -14,6 +17,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
             alert('Zalogowano pomyślnie!');
+            navigate("/");
             console.log(data);
         } else {
             alert('Błąd logowania: ' + data.message);

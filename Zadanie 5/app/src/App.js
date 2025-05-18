@@ -7,6 +7,8 @@ import "./assets/styles/App.css";
 import "./assets/styles/CartList.css";
 import "./assets/styles/ProductList.css";
 import "./assets/styles/PaymentList.css";
+import Register from "./components/register/register";
+import Login from "./components/login/login";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
                         <li><Link to="/">Produkty</Link></li>
                         <li><Link to="/koszyk">Koszyk</Link></li>
                         <li><Link to="/platnosci">Płatności</Link></li>
+                        <li><Link to="/login">Logowanie</Link></li>
+                        <li><Link to="/register">Rejestracja</Link></li>
                     </ul>
                 </nav>
                 <main className="content">
@@ -26,6 +30,8 @@ function App() {
                         <Route path="/" element={<ProductList />} />
                         <Route path="/koszyk" element={<CartList />} />
                         <Route path="/platnosci" element={<PaymentList />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
                     </Routes>
                 </main>
             </div>
