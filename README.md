@@ -116,3 +116,39 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 **Prawidłowa komunikacja:**
 `React -> Serwer -> Dostawca -> Serwer (via return URI) -> React`
+
+> Zadanie 9: ChatGPT bot
+
++ ❌ 3.0 Należy stworzyć po stronie serwerowej osobny serwis do łączenia z ChatGPT do usługi chat [Commit]()
++ ❌ 3.5 Należy stworzyć interfejs frontowy dla użytkownika, który komunikuje się z serwisem; odpowiedzi powinny być wysyłane do frontendowego interfejsu [Commit]()
++ ❌ 4.0 Stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy [Commit]()
++ ❌ 4.5 Filtrowanie po zagadnieniach związanych ze sklepem (np. ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT [Commit]()
++ ❌ 5.0 Filtrowanie odpowiedzi po sentymencie [Commit]()
+
+**Wymagania:**
+- Rozszerzenie funkcjonalności bota o osobny serwis w Pythonie do komunikacji z ChatGPT.
+- Stworzenie aplikacji frontendowej do komunikacji z serwisem.
+- Odpowiedzi z ChatGPT przesyłane do użytkownika przez frontend.
+- Lista 5 różnych otwarć i zamknięć rozmowy.
+- Filtrowanie tematów do GPT (tylko sklep/ubrania).
+- Filtrowanie odpowiedzi po sentymencie.
+
++ Kod: folder 'Zadanie 9'
+
+> Zadanie 10: Chmura/CI
+
++ ❌ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze [Commit]()
++ ❌ 3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji (np. via fatjar) [Commit]()
++ ❌ 4.0 Dodać notyfikację mailową o zbudowaniu aplikacji [Commit]()
++ ❌ 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę [Commit]()
++ ❌ 5.0 Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions [Commit]()
+
+**Wymagania:**
+- Wykorzystanie GitHub Actions (lub innego CI) oraz chmury (np. Azure) do budowy i wdrożenia aplikacji frontendowej i backendowej jako osobnych usług.
+- Wykorzystanie obrazów dockerowych, uruchomienie aplikacji w kontenerach.
+- Możliwość budowania aplikacji lokalnie (np. fatjar) lub w pipeline.
+- Notyfikacja mailowa po zbudowaniu aplikacji.
+- Deployment obu aplikacji na chmurę.
+- Uruchomienie testów regresyjnych jako krok w pipeline.
+
++ Kod: folder 'Zadanie 10'
