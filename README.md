@@ -120,7 +120,7 @@ W ramach projektu należy stworzyć trzy komponenty:
 > Zadanie 9: ChatGPT bot
 
 + ✅ 3.0 Należy stworzyć po stronie serwerowej osobny serwis do łączenia z ChatGPT do usługi chat [Commit](https://github.com/Mnichuu/ebiznes/commit/56f8aa1a8bfe37a9d2cdfa2d2a1f36e8a9f57e66)
-+ ❌ 3.5 Należy stworzyć interfejs frontowy dla użytkownika, który komunikuje się z serwisem; odpowiedzi powinny być wysyłane do frontendowego interfejsu [Commit]()
++ ✅ 3.5 Należy stworzyć interfejs frontowy dla użytkownika, który komunikuje się z serwisem; odpowiedzi powinny być wysyłane do frontendowego interfejsu [Commit](https://github.com/Mnichuu/ebiznes/commit/b5d48738510b37ea6235117909e7a12ef27c6523)
 + ❌ 4.0 Stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy [Commit]()
 + ❌ 4.5 Filtrowanie po zagadnieniach związanych ze sklepem (np. ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT [Commit]()
 + ❌ 5.0 Filtrowanie odpowiedzi po sentymencie [Commit]()
