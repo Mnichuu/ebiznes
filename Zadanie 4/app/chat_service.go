@@ -9,37 +9,31 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type ChatRequest struct {
-	Message string `json:"message"`
+type GenerateRequest struct {
+	Prompt string `json:"prompt"`
 }
 
-type OllamaMessage struct {
-	Role    string `json:"role"`
-	Content string `json:"content"`
+type OllamaGenerateRequest struct {
+	Model  string `json:"model"`
+	Prompt string `json:"prompt"`
+	Stream bool   `json:"stream"` // ważne: false, żeby było parsowalne
 }
 
-type OllamaRequest struct {
-	Model    string          `json:"model"`
-	Messages []OllamaMessage `json:"messages"`
-	Stream   bool            `json:"stream"`
-}
-
-type OllamaResponse struct {
-	Message OllamaMessage `json:"message"`
+type OllamaGenerateResponse struct {
+	Response string `json:"response"`
+	Done     bool   `json:"done"`
 }
 
 func chatHandler(c echo.Context) error {
-	var chatReq ChatRequest
-	if err := c.Bind(&chatReq); err != nil {
+	var req GenerateRequest
+	if err := c.Bind(&req); err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid request"})
 	}
 
-	ollamaReq := OllamaRequest{
-		Model:  "llama3",
+	ollamaReq := OllamaGenerateRequest{
+		Model:  "llama3", // możesz to potem parametryzować
+		Prompt: req.Prompt,
 		Stream: false,
-		Messages: []OllamaMessage{
-			{Role: "user", Content: chatReq.Message},
-		},
 	}
 
 	reqBody, err := json.Marshal(ollamaReq)
@@ -47,7 +41,7 @@ func chatHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to marshal request"})
 	}
 
-	resp, err := http.Post("http://localhost:11434/api/chat", "application/json", bytes.NewReader(reqBody))
+	resp, err := http.Post("http://localhost:11434/api/generate", "application/json", bytes.NewReader(reqBody))
 	if err != nil {
 		return c.JSON(http.StatusBadGateway, map[string]string{"error": "Failed to connect to Ollama"})
 	}
@@ -55,15 +49,15 @@ func chatHandler(c echo.Context) error {
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to read response from Ollama"})
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to read response"})
 	}
 
-	var ollamaResp OllamaResponse
+	var ollamaResp OllamaGenerateResponse
 	if err := json.Unmarshal(respBody, &ollamaResp); err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to parse response from Ollama"})
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to parse Ollama response"})
 	}
 
 	return c.JSON(http.StatusOK, map[string]string{
-		"response": ollamaResp.Message.Content,
+		"response": ollamaResp.Response,
 	})
 }
