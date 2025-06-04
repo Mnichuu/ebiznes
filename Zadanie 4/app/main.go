@@ -65,6 +65,8 @@ func main() {
 	e.POST("/register", register)
 	e.POST("/login", login)
 
+	e.POST("/chat", chatHandler)
+
 	// Start serwera
 	e.Logger.Fatal(e.Start(":8080"))
 }
