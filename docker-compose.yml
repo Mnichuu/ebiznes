@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  zadanie4:
+    build:
+      context: ./Zadanie 4/app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  zadanie5:
+    build:
+      context: ./Zadanie 5/app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

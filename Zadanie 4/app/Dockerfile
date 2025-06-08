@@ -1,16 +1,14 @@
-FROM golang:1.20 AS builder
+FROM golang:1.20
 
 WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
 
 RUN go build -o main .
 
-FROM alpine:latest
-WORKDIR /root/
-COPY --from=builder /app/main .
+EXPOSE 1323
 
-# Eksponowanie portu aplikacji
-EXPOSE 8080
-
-# Uruchomienie aplikacji
 CMD ["./main"]
