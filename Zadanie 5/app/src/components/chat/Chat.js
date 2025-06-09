@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Chat.css";
+import "../../assets/styles/Chat.css";
 
 function Chat() {
     const [prompt, setPrompt] = useState("");

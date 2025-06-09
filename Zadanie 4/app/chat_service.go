@@ -16,7 +16,7 @@ type GenerateRequest struct {
 type OllamaGenerateRequest struct {
 	Model  string `json:"model"`
 	Prompt string `json:"prompt"`
-	Stream bool   `json:"stream"` // ważne: false, żeby było parsowalne
+	Stream bool   `json:"stream"`
 }
 
 type OllamaGenerateResponse struct {
@@ -31,7 +31,7 @@ func chatHandler(c echo.Context) error {
 	}
 
 	ollamaReq := OllamaGenerateRequest{
-		Model:  "llama3", // możesz to potem parametryzować
+		Model:  "llama3",
 		Prompt: req.Prompt,
 		Stream: false,
 	}
@@ -41,7 +41,7 @@ func chatHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to marshal request"})
 	}
 
-	resp, err := http.Post("http://localhost:11434/api/generate", "application/json", bytes.NewReader(reqBody))
+	resp, err := http.Post("http://ollama3-1:11434/api/generate", "application/json", bytes.NewReader(reqBody))
 	if err != nil {
 		return c.JSON(http.StatusBadGateway, map[string]string{"error": "Failed to connect to Ollama"})
 	}

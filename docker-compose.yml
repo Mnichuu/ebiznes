@@ -1,6 +1,12 @@
-version: '3.8'
-
 services:
+  ollama3:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    entrypoint: ["/bin/sh","-c","ollama serve & sleep 5 && ollama pull llama3 && wait"]
+    restart: "no"
   zadanie4:
     build:
       context: ./Zadanie 4/app
@@ -22,3 +28,5 @@ services:
 networks:
   app-network:
     driver: bridge
+volumes:
+  ollama:
