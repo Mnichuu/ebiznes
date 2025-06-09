@@ -137,7 +137,7 @@ W ramach projektu należy stworzyć trzy komponenty:
 
 > Zadanie 10: Chmura/CI
 
-+ ❌ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze [Commit]()
++ ✅ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze [Commit](https://github.com/Mnichuu/ebiznes/commit/13168c472948f9a10d3465eee04830de6c4981ef) - użyłem Oracle Cloud Infrastructure
 + ❌ 3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji (np. via fatjar) [Commit]()
 + ❌ 4.0 Dodać notyfikację mailową o zbudowaniu aplikacji [Commit]()
 + ❌ 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę [Commit]()
