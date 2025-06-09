@@ -6,7 +6,7 @@ SQLite w ramach projektu na Gradle (build.gradle)
 + ✅ 4.5 stworzyć przykład typu HelloWorld oraz uruchomienie aplikacji
 przez CMD oraz gradle
 + ✅ 5.0 dodać konfigurację docker-compose 
-- Link do dockerhuba: https://hub.docker.com/repository/docker/smnich/dockerjavaapp/general
+- Link do dockerhuba: https://hub.docker.com/r/smnich/dockerjavaapp
 <br> *Po zajęciach 24.03 dopisuję, że moim zdaniem zadanie 1 zrobiłem na 5*
 + Kod: folder 'Zadanie 1'
 > Zadanie 2:
