@@ -1,0 +1,32 @@
+services:
+  ollama3:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    entrypoint: ["/bin/sh","-c","ollama serve & sleep 5 && ollama pull llama3 && wait"]
+    restart: "no"
+  zadanie4:
+    build:
+      context: ./Zadanie 4/app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  zadanie5:
+    build:
+      context: ./Zadanie 5/app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  ollama:
